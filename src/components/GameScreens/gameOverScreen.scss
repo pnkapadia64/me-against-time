@@ -1,0 +1,32 @@
+.game-over-container {
+  text-align: center;
+
+  &__header {
+    font-size: 1.6rem;
+    margin-top: 4rem;
+  }
+
+  &__button {
+    align-items: center;
+    background-color: #24cca8;
+    border: none;
+    border-radius: 4rem;
+    box-shadow: none;
+    color: #eee;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.6rem;
+    height: 5rem;
+    justify-content: center;
+    margin: 4rem auto;
+    width: 12rem;
+  }
+
+  &__status,
+  &__score,
+  &__high-score-label,
+  &__high-score {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+  }
+}

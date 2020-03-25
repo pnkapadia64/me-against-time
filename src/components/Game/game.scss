@@ -1,0 +1,36 @@
+.my-app {
+  &__game {
+    margin: 5rem auto;
+    padding: 0 3rem;
+  }
+
+  &__g__wrapper {
+    padding: 2rem;
+  }
+
+  &__gw__equation {
+    width: 100%;
+    height: 3rem;
+    display: inline-block;
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  &__gwe__number,
+  &__gwe__operator {
+    display: inline-block;
+    width: 3rem;
+    line-height: 3rem;
+    font-size: 2.5rem;
+    margin: 0 0.5rem;
+  }
+
+  &__g__stats {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  &__gs__score {
+    margin: 2rem 0;
+  }
+}
