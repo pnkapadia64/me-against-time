@@ -1,31 +1,42 @@
+@import '../../variables';
+
 .game-over-container {
   text-align: center;
 
   &__header {
-    font-size: 1.6rem;
+    color: $blue;
+    font-size: 2.4rem;
     margin-top: 4rem;
+  }
+
+  &__score {
+    font-size: 1.8rem;
+    margin: 1rem 0;
   }
 
   &__button {
     align-items: center;
-    border: 0.3rem solid #F3CF14;
+    border: 0.3rem solid $yellow;
     border-radius: 10rem;
     box-shadow: none;
-    color: #eee;
+    color: $white;
     cursor: pointer;
     display: flex;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     height: 5rem;
     justify-content: center;
     margin: 4rem auto;
     width: 12rem;
   }
 
+  &__high-score-label {
+    color: $yellow;
+  }
+
   &__status,
-  &__score,
   &__high-score-label,
   &__high-score {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin: 1rem 0;
   }
 }

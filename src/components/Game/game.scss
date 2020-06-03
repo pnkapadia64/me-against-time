@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .my-app {
   &__game {
     margin: 5rem auto;
@@ -21,7 +23,7 @@
     display: inline-block;
     width: 3rem;
     line-height: 3rem;
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin: 0 0.5rem;
   }
 
@@ -31,6 +33,13 @@
   }
 
   &__gs__score {
+    color: $yellow;
     margin: 2rem 0;
+  }
+
+  &__gs__high-score,
+  &__gs__highest-score {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
   }
 }

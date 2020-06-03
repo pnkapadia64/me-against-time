@@ -1,3 +1,5 @@
+@import '../variables';
+
 .my-app {
   border-radius: 0.5rem;
   height: 38rem;
@@ -10,4 +12,14 @@
   font-family: fantasy;
   font-size: 3rem;
   text-align: center;
+  color: $blue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.my-app__logo {
+  height: 6rem;
+  width: 6rem;
+  fill: $yellow;
 }

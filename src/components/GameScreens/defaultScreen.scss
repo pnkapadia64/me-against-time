@@ -1,14 +1,19 @@
+@import '../../variables';
+
 .start-container {
-  margin: 2rem 0;
+  margin: 3rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   &__high-score {
     font-size: 1.6rem;
-    margin-bottom: 3rem;
-    padding-top: 1rem;
+    margin: 3rem;
     text-align: center;
+  }
+
+  &__hs__user {
+    font-size: 1.8rem;
   }
 
   &__rules {
@@ -16,6 +21,7 @@
   }
 
   &__r__label {
+    color: $yellow;
     font-size: 1.4rem;
   }
 

@@ -1,8 +1,8 @@
 {
-  "name": "that-game",
+  "name": "race-against-time",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pnkapadia6.github.io/ThatGame",
+  "homepage": ".",
   "dependencies": {
     "classnames": "^2.1.2",
     "lodash": "^4.5.0",
@@ -62,7 +62,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build",
+    "deploy:prod": "netlify deploy --prod"
   },
   "jest": {
     "collectCoverageFrom": [

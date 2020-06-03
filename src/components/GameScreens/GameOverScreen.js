@@ -29,8 +29,8 @@ class GameOverScreen extends PureComponent {
 
     return (
       <div className="game-over-container">
-        {renderGameState(props.gameState)}
         <div className="game-over-container__header">Game Over!</div>
+        {renderGameState(props.gameState)}
         <div className="game-over-container__score">Score: {props.score}</div>
         <div className="game-over-container__button" onClick={props.onStartGame}>Play again</div>
         <div className="game-over-container__high-score-label">

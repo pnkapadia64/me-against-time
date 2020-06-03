@@ -8,6 +8,7 @@ import Game from './Game';
 import { startGame } from '../actions';
 import { GAME_STATUS } from '../constants';
 import './mainApp.scss';
+import GameLogo from './GameLogo/GameLogo';
 
 const CURRENT_GAME_STATE = {
   DEFAULT: 'DEFAULT', // Initial default state of the game
@@ -61,7 +62,7 @@ const mapDispatchToProps = (dispatch) => ({
   onStartGame: () => {
     setTimeout(() => {
       dispatch(startGame())
-    }, 200);
+    }, 500);
   }
 });
 
@@ -70,7 +71,10 @@ const MainApp = (props) => {
 
   return (
     <div className="my-app">
-      <div className="my-app__title">Race Against Time</div>
+      <div className="my-app__title">
+        <GameLogo className="my-app__logo" />
+        {props.gameState === CURRENT_GAME_STATE.DEFAULT && 'Race Against Time'}
+      </div>
       <GameComponent {...props} />
     </div>
   )

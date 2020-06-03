@@ -1,7 +1,10 @@
+@import '../../variables';
+
 .user-buttons {
   display: flex;
   height: 4rem;
   text-align: center;
+  padding: 1rem 0;
   width: 100%;
 
   &__btn {
@@ -12,15 +15,17 @@
     font-size: 2rem;
     height: 100%;
     line-height: 4rem;
-    margin: 0 1rem;
     border-radius: 10rem;
+    overflow: hidden;
   }
 
   &__btn--true {
-    border-color: #24cca8;
+    border-color: $green;
+    margin-right: 1rem;
   }
 
   &__btn--false {
-    border-color: #ff3f33;
+    border-color: $red;
+    margin-left: 1rem;
   }
 }

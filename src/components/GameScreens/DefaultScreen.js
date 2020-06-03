@@ -5,7 +5,7 @@ import MainButton from '../MainButton/MainButton';
 const DefaultScreen = ({ userHighScore = 0, highestScore = 0, onStartGame }) => {
   const highScoreHtml = (
     <div className="start-container__high-score">
-      <p>Your High Score: {userHighScore}</p>
+      <p className="start-container__hs__user">Your High Score: {userHighScore}</p>
       <p>Highest Score: {highestScore}</p>
     </div>
   );
@@ -19,7 +19,7 @@ const DefaultScreen = ({ userHighScore = 0, highestScore = 0, onStartGame }) => 
           How To Play?
         </label>
         <p className="start-container__r__details">
-          For given simple math equations, answer whether they are true or false within a couple of seconds
+          Answer true/false for simple questions at your best speed!
         </p>
       </div>
     </div>

@@ -1,7 +1,10 @@
+@import './variables';
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  color: $white;
 }
 
 html {
@@ -9,6 +12,6 @@ html {
 }
 
 #root {
-  background-color: #292929;
+  background-color: $black;
   height: 100vh;
 }
