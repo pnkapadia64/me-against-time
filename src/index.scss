@@ -12,6 +12,8 @@ html {
 }
 
 #root {
+  align-items: center;
   background-color: $black;
+  display: flex;
   height: 100vh;
 }
