@@ -1,4 +1,4 @@
-That Game
+Race Against Time
 ----------
 Simple, timed-based and fast-paced game.
 

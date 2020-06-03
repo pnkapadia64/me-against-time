@@ -70,7 +70,7 @@ const MainApp = (props) => {
 
   return (
     <div className="my-app">
-      <div className="my-app__title">That Game!</div>
+      <div className="my-app__title">Race Against Time</div>
       <GameComponent {...props} />
     </div>
   )

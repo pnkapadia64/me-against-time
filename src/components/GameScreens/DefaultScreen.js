@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import './defaultScreen.scss';
+import MainButton from '../MainButton/MainButton';
 
 const DefaultScreen = ({ userHighScore = 0, highestScore = 0, onStartGame }) => {
   const highScoreHtml = (
@@ -11,7 +12,7 @@ const DefaultScreen = ({ userHighScore = 0, highestScore = 0, onStartGame }) => 
 
   return (
     <div className="start-container">
-      <div className="start-container__button" onClick={onStartGame}>GO</div>
+      <MainButton label="GO" onClick={onStartGame} />
       {highScoreHtml}
       <div className="start-container__rules">
         <label className="start-container__r__label">
