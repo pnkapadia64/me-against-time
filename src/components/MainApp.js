@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { firebase, helpers } from 'react-redux-firebase'
 
@@ -9,6 +10,7 @@ import { startGame } from '../actions';
 import { GAME_STATUS } from '../constants';
 import './mainApp.scss';
 import GameLogo from './GameLogo/GameLogo';
+import { initGA } from '../ga';
 
 const CURRENT_GAME_STATE = {
   DEFAULT: 'DEFAULT', // Initial default state of the game
@@ -68,6 +70,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 const MainApp = (props) => {
   const GameComponent = GAME_COMPONENT_MAP[props.gameState];
+
+  React.useEffect(() => {
+    initGA();
+  }, []);
 
   return (
     <div className="my-app">

@@ -1,4 +1,6 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { sendGAHighestScore, sendGAUserScore } from '../../ga';
 import './gameOverScreen.scss';
 
 const renderGameState = (gameState) => {
@@ -21,7 +23,9 @@ class GameOverScreen extends PureComponent {
     const { props } = this;
     if (this.state.isHighestScore) {
       props.firebase.set('highestScore', props.userHighScore);
+      sendGAHighestScore(props.userHighScore);
     }
+    sendGAUserScore(props.score);
   }
 
   render() {
