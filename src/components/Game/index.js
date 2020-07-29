@@ -6,8 +6,10 @@ import { startGame, answerCorrectly, answerIncorrectly } from '../../actions';
 import UserButtons from './UserButtons';
 import Timer from '../Timer';
 import { GAME_STATUS } from '../../constants';
+import { getDifficultiesForScore } from './difficulty';
 
 import './game.scss';
+import Equation from './Equation';
 
 const mapStateToProps = (state) => ({
   equation: state.game.equation,
@@ -31,35 +33,24 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 
 class Game extends PureComponent {
   render() {
+    const difficulties = getDifficultiesForScore(this.props.score);
+
     return (
       <div className="my-app__game">
         <div className="my-app__g__wrapper">
-          {this.renderGameQuestion()}
+          <Equation equation={this.props.equation} difficulties={difficulties} />
           <Timer />
-          {this.renderUserButtons()}
+          {this.renderUserButtons(difficulties)}
         </div>
         {this.renderStats()}
       </div>
     );
   }
 
-  renderGameQuestion() {
-    const { equation: { nos, operator, answer } } = this.props;
-    return (
-      <div className="my-app__gw__equation">
-        <div className="my-app__gwe__number">{nos[0]}</div>
-        <div className="my-app__gwe__operator">{operator.symbol}</div>
-        <div className="my-app__gwe__number">{nos[1]}</div>
-        <div className="my-app__gwe__operator my-app__gwe__operator--equal">=</div>
-        <div className="my-app__gwe__number my-app__gwe__number--answer">{answer}</div>
-      </div>
-    )
-  }
-
-  renderUserButtons() {
+  renderUserButtons(difficulties) {
     const { gameStatus, onTrueClick, onFalseClick } = this.props;
     return (gameStatus === GAME_STATUS.ONGOING) && (
-        <UserButtons onTrueClick={onTrueClick} onFalseClick={onFalseClick} />
+        <UserButtons difficulties={difficulties} onTrueClick={onTrueClick} onFalseClick={onFalseClick} />
       );
   }
 

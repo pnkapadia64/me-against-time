@@ -19,13 +19,19 @@
     overflow: hidden;
   }
 
+  &__btn:first-child {
+    margin-right: 1rem;
+  }
+
+  &__btn:not(:first-child) {
+    margin-left: 1rem;
+  }
+
   &__btn--true {
     border-color: $green;
-    margin-right: 1rem;
   }
 
   &__btn--false {
     border-color: $red;
-    margin-left: 1rem;
   }
 }
