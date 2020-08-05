@@ -1,7 +1,7 @@
 import _merge from 'lodash/merge';
 import { DEFAULT_STATE } from '../constants';
 
-const KEY = 'userHighScore';
+const KEY = 'user_high_score';
 const getSerializesHighScore = () => {
   try {
     const serializedHighScore = localStorage.getItem(KEY);
