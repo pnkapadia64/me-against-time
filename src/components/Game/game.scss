@@ -2,14 +2,27 @@
 
 // handle multiple animations
 .blink {
-  animation: blinker 1s linear infinite;
-  -webkit-animation: blinker 1s linear infinite;
+  animation: blinker 1.2s linear infinite;
+  -webkit-animation: blinker 1.2s linear infinite;
 }
 
 @keyframes blinker {
+  25% {
+    opacity: 0.5;
+  }
+
   50% {
     opacity: 0;
   }
+
+  25% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+
 }
 
 .move_slow {

@@ -1,9 +1,10 @@
 import _merge from 'lodash/merge';
 import { DEFAULT_STATE } from '../constants';
 
+const KEY = 'userHighScore';
 const getSerializesHighScore = () => {
   try {
-    const serializedHighScore = localStorage.getItem('userHighScore');
+    const serializedHighScore = localStorage.getItem(KEY);
     if (serializedHighScore === null)
       return 0;
     return JSON.parse(serializedHighScore);
@@ -28,7 +29,7 @@ export const saveLocalState = (state) => {
   if (savedHighScore !== newHighScore) {
     try {
       const serializedState = JSON.stringify(newHighScore || 0);
-      localStorage.setItem('userHighScore', serializedState);
+      localStorage.setItem(KEY, serializedState);
     } catch (err) {
       return {};
     }
