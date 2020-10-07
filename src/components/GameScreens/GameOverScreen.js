@@ -12,6 +12,9 @@ const renderGameState = (gameState) => {
 };
 
 const getSolvedEquationsPerMinute = (eqCount, timeTakenInSec) => {
+  if (!eqCount) {
+    return '';
+  }
   return Math.round((60*eqCount ) / timeTakenInSec);
 };
 
@@ -34,6 +37,7 @@ class GameOverScreen extends PureComponent {
 
   render() {
     const { props } = this;
+    const eqSpeed = getSolvedEquationsPerMinute(props.score, props.timeTakenInMs);
 
     return (
       <div className="game-over-container">
@@ -41,7 +45,7 @@ class GameOverScreen extends PureComponent {
         {renderGameState(props.gameState)}
         <div className="game-over-container__score">Score: {props.score}</div>
         <div className="game-over-container__button" onClick={props.onStartGame}>Play again</div>
-        <div className="game-over-container__speed">You can solve {getSolvedEquationsPerMinute(props.score, props.timeTakenInMs)} equations in a minute!</div>
+        {eqSpeed && <div className="game-over-container__speed">You can solve {eqSpeed} equations in a minute!</div>}
         <div className="game-over-container__high-score-label">
           {props.highScoreCreated ? 'High Score created!' : ''}
           {this.state.isHighestScore ? ' You beat everyone!' : ''}
