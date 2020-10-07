@@ -28,13 +28,14 @@ const GAME_COMPONENT_MAP = {
 
 const mapStateToProps = state => {
   const { firebase, game = {}, timer = {} } = state;
-  const { userHighScore, highScoreCreated, score, status } = game;
+  const { userHighScore, highScoreCreated, score, status, timeTakenInMs } = game;
   const { ongoing } = timer;
   const props = {
     userHighScore,
     highScoreCreated,
     score,
-    highestScore: helpers.dataToJS(firebase, 'highestScore')
+    highestScore: helpers.dataToJS(firebase, 'highestScore') || '-',
+    timeTakenInMs
   };
 
   if (status === GAME_STATUS.DEFAULT) {

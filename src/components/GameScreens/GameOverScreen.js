@@ -11,6 +11,10 @@ const renderGameState = (gameState) => {
   )
 };
 
+const getSolvedEquationsPerMinute = (eqCount, timeTakenInSec) => {
+  return Math.round((60*eqCount ) / timeTakenInSec);
+};
+
 class GameOverScreen extends PureComponent {
   constructor(props) {
     super();
@@ -37,6 +41,7 @@ class GameOverScreen extends PureComponent {
         {renderGameState(props.gameState)}
         <div className="game-over-container__score">Score: {props.score}</div>
         <div className="game-over-container__button" onClick={props.onStartGame}>Play again</div>
+        <div className="game-over-container__speed">You can solve {getSolvedEquationsPerMinute(props.score, props.timeTakenInMs)} equations in a minute!</div>
         <div className="game-over-container__high-score-label">
           {props.highScoreCreated ? 'High Score created!' : ''}
           {this.state.isHighestScore ? ' You beat everyone!' : ''}
@@ -52,12 +57,13 @@ class GameOverScreen extends PureComponent {
 
 GameOverScreen.propTypes = {
   firebase: PropTypes.object,
-  highestScore: PropTypes.number.isRequired,
+  highestScore: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   userHighScore: PropTypes.number.isRequired,
   highScoreCreated: PropTypes.bool,
   gameState: PropTypes.string.isRequired,
   onStartGame: PropTypes.func.isRequired,
-  score: PropTypes.number.isRequired
+  score: PropTypes.number.isRequired,
+  timeTakenInMs: PropTypes.number.isRequired
 };
 
 export default GameOverScreen;

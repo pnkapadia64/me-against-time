@@ -15,7 +15,8 @@ export const DEFAULT_STATE = {
     userHighScore: 0,
     highScoreCreated: false,
     score: 0,
-    status: GAME_STATUS.DEFAULT
+    status: GAME_STATUS.DEFAULT,
+    timeTakenInMs: 0,
   },
   timer: {
     timer: TIMER_OFFSET,
@@ -36,18 +37,4 @@ export const OPERATORS = {
       return a - b;
     }
   }
-  // MULTIPLY:  {
-  // 	symbol: 'x',
-  // 	operate(a, b) {
-  // 		return a*b;
-  // 	}
-  // },
-  // DIVIDE:  {
-  // 	symbol: '/',
-  // 	operate(a, b) {
-  // 		if (b === 0)
-  // 			return undefined;
-  // 		return a/b;
-  // 	}
-  // }
 };

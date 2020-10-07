@@ -1,6 +1,7 @@
 import _get from 'lodash/get';
 
 import { TIMER_OFFSET, TIMER_BASE } from '../constants';
+import { getTimeTakenInMs } from '../helpers/time';
 
 export const setTimer = time => ({
   type: 'SET_TIMER',
@@ -40,12 +41,20 @@ export const startGame = () => (dispatch) => {
   dispatch({ type: 'START_GAME' });
 };
 
-export const answerCorrectly = () => (dispatch) => {
+export const answerCorrectly = () => (dispatch, getState) => {
+  const timeLeft = _get(getState(), 'timer.timer');
+
   dispatch(startTimer());
-  dispatch({ type: 'USER_ANSWER_CORRECT' });
+  dispatch({ type: 'USER_ANSWER_CORRECT', payload: {
+    timeTakenInMs: getTimeTakenInMs(timeLeft)
+  } });
 };
 
-export const answerIncorrectly = () => (dispatch) => {
+export const answerIncorrectly = () => (dispatch, getState) => {
+  const timeLeft = _get(getState(), 'timer.timer');
+
   dispatch(stopGame());
-  dispatch({ type: 'USER_ANSWER_INCORRECT' });
+  dispatch({ type: 'USER_ANSWER_INCORRECT', payload: {
+    timeTakenInMs: getTimeTakenInMs(timeLeft)
+  } });
 };

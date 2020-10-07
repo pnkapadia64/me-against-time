@@ -28,7 +28,7 @@ const DefaultScreen = ({ userHighScore = 0, highestScore = 0, onStartGame }) => 
 };
 
 DefaultScreen.propTypes = {
-  highestScore: PropTypes.number,
+  highestScore: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   userHighScore: PropTypes.number.isRequired,
   onStartGame: PropTypes.func.isRequired
 };

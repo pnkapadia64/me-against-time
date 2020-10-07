@@ -7,9 +7,9 @@ import UserButtons from './UserButtons';
 import Timer from '../Timer';
 import { GAME_STATUS } from '../../constants';
 import { getDifficultiesForScore } from './difficulty';
+import Equation from './Equation';
 
 import './game.scss';
-import Equation from './Equation';
 
 const mapStateToProps = (state) => ({
   equation: state.game.equation,
@@ -68,7 +68,7 @@ class Game extends PureComponent {
 Game.propTypes = {
   gameStatus: PropTypes.string.isRequired,
   equation: PropTypes.object.isRequired,
-  highestScore: PropTypes.number.isRequired,
+  highestScore: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   userHighScore: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired
 };

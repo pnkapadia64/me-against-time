@@ -21,9 +21,11 @@ const game = (state = DEFAULT_STATE.game, action) => {
       return gameState;
 
     case 'USER_ANSWER_CORRECT':
+      const timeTaken = action.payload.timeTakenInMs;
       gameState = Object.assign({}, state, {
         score: state.score + 1,
-        equation: new Equation()
+        equation: new Equation(),
+        timeTakenInMs: state.timeTakenInMs + timeTaken,
       });
       if (gameState.score > gameState.userHighScore) {
         gameState.userHighScore = gameState.score;
