@@ -12,6 +12,7 @@ import './mainApp.scss';
 import GameLogo from './GameLogo/GameLogo';
 import { initGA } from '../ga';
 import { initCZY } from '../czy';
+import CrazyGamesLogo from '../assets/czy-logo.png';
 
 const CURRENT_GAME_STATE = {
   DEFAULT: 'DEFAULT', // Initial default state of the game
@@ -85,6 +86,7 @@ const MainApp = (props) => {
         {props.gameState === CURRENT_GAME_STATE.DEFAULT && 'Race Against Time'}
       </div>
       <GameComponent {...props} />
+      <img className="my-app__czy-logo" src={CrazyGamesLogo} alt="CrazyGames" />
     </div>
   )
 };
