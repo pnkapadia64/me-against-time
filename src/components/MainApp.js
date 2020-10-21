@@ -11,6 +11,7 @@ import { GAME_STATUS } from '../constants';
 import './mainApp.scss';
 import GameLogo from './GameLogo/GameLogo';
 import { initGA } from '../ga';
+import { initCZY } from '../czy';
 
 const CURRENT_GAME_STATE = {
   DEFAULT: 'DEFAULT', // Initial default state of the game
@@ -74,6 +75,7 @@ const MainApp = (props) => {
 
   React.useEffect(() => {
     initGA();
+    initCZY();
   }, []);
 
   return (

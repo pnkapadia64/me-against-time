@@ -41,17 +41,17 @@ class UserButtons extends React.PureComponent {
     return (
       <div className="user-buttons">
         {this.isTrueFirst && <div className="user-buttons__btn user-buttons__btn--true" onClick={onTrueClick}>
-          <div class="arrow-left" />
+          <div className="arrow-left" />
           True
         </div>}
         <div className="user-buttons__btn user-buttons__btn--false" onClick={onFalseClick}>
-          {!this.isTrueFirst && <div class="arrow-left" />}
+          {!this.isTrueFirst && <div className="arrow-left" />}
           False
-          {this.isTrueFirst && <div class="arrow-right" />}
+          {this.isTrueFirst && <div className="arrow-right" />}
         </div>
         {!this.isTrueFirst && <div className="user-buttons__btn user-buttons__btn--true" onClick={onTrueClick}>
           True
-          <div class="arrow-right" />
+          <div className="arrow-right" />
         </div>}
       </div>
     );

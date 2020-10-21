@@ -2,6 +2,7 @@ import _get from 'lodash/get';
 
 import { TIMER_OFFSET, TIMER_BASE } from '../constants';
 import { getTimeTakenInMs } from '../helpers/time';
+import { czyStartGame, czyStopGame } from '../czy';
 
 export const setTimer = time => ({
   type: 'SET_TIMER',
@@ -14,6 +15,7 @@ export const resetTimer = (timerId, timer) => ({
 });
 
 export const stopGame = () => (dispatch, getState) => {
+  czyStopGame();
   const oldTimerId = _get(getState(), 'timer.timerId');
   oldTimerId && clearInterval(oldTimerId);
 
@@ -37,6 +39,7 @@ export const startTimer = () => {
 };
 
 export const startGame = () => (dispatch) => {
+  czyStartGame();
   dispatch(startTimer());
   dispatch({ type: 'START_GAME' });
 };

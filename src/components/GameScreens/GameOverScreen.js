@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { sendGAHighestScore, sendGAUserScore } from '../../ga';
 import './gameOverScreen.scss';
+import { czyShowHappytime, czyShowMidgameAd } from '../../czy';
 
 const renderGameState = (gameState) => {
   return (
@@ -29,10 +30,17 @@ class GameOverScreen extends PureComponent {
   componentWillMount() {
     const { props } = this;
     if (this.state.isHighestScore) {
+      czyShowHappytime();
       props.firebase.set('highestScore', props.userHighScore);
       sendGAHighestScore(props.userHighScore);
     }
     sendGAUserScore(props.score);
+
+    window.addEventListener('keydown', this.onKeyDown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.onKeyDown);
   }
 
   render() {
@@ -44,7 +52,7 @@ class GameOverScreen extends PureComponent {
         <div className="game-over-container__header">Game Over!</div>
         {renderGameState(props.gameState)}
         <div className="game-over-container__score">Score: {props.score}</div>
-        <div className="game-over-container__button" onClick={props.onStartGame}>Play again</div>
+        <div className="game-over-container__button" onClick={this.onPlayAgain}>Play again</div>
         {eqSpeed && <div className="game-over-container__speed">You can solve {eqSpeed} equations in a minute!</div>}
         <div className="game-over-container__high-score-label">
           {props.highScoreCreated ? 'High Score created!' : ''}
@@ -56,6 +64,17 @@ class GameOverScreen extends PureComponent {
         </div>
       </div>
     );
+  }
+
+  onKeyDown = (e) => {
+    // Space or Enter key
+    if (e.keyCode === 32 || e.keyCode === 13) {
+      this.onPlayAgain();
+    }
+  }
+
+  onPlayAgain = () => {
+    czyShowMidgameAd(() => this.props.onStartGame());
   }
 }
 

@@ -11,8 +11,9 @@ const MainButton = props => {
 
     React.useEffect(() => {
         window.addEventListener('keydown', onKeyDown);
-    }, () => {
-        window.removeEventListener('keydown', onKeyDown);
+        return () => {
+            window.removeEventListener('keydown', onKeyDown);
+        }
     });
 
     return (
