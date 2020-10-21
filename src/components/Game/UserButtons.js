@@ -40,9 +40,19 @@ class UserButtons extends React.PureComponent {
     const { onTrueClick, onFalseClick } = this.props;
     return (
       <div className="user-buttons">
-        {this.isTrueFirst && <div className="user-buttons__btn user-buttons__btn--true" onClick={onTrueClick}>True</div>}
-        <div className="user-buttons__btn user-buttons__btn--false" onClick={onFalseClick}>False</div>
-        {!this.isTrueFirst && <div className="user-buttons__btn user-buttons__btn--true" onClick={onTrueClick}>True</div>}
+        {this.isTrueFirst && <div className="user-buttons__btn user-buttons__btn--true" onClick={onTrueClick}>
+          <i className="user-buttons__icon--left fa fa-chevron-left" aria-hidden="true"></i>
+          True
+        </div>}
+        <div className="user-buttons__btn user-buttons__btn--false" onClick={onFalseClick}>
+          {!this.isTrueFirst && <i className="user-buttons__icon--left fa fa-chevron-left" aria-hidden="true"></i>}
+          False
+          {this.isTrueFirst && <i className="user-buttons__icon--right fa fa-chevron-right" aria-hidden="true"></i>}
+        </div>
+        {!this.isTrueFirst && <div className="user-buttons__btn user-buttons__btn--true" onClick={onTrueClick}>
+          True
+          <i className="user-buttons__icon--right fa fa-chevron-right" aria-hidden="true"></i>
+        </div>}
       </div>
     );
   }

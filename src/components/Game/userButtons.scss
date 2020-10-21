@@ -34,4 +34,14 @@
   &__btn--false {
     border-color: $red;
   }
+
+  &__icon--left {
+    font-size: 0.8em;
+    margin-right: 12px;
+  }
+
+  &__icon--right {
+    font-size: 0.8em;
+    margin-left: 12px;
+  }
 }
