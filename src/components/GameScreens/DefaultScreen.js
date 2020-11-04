@@ -21,6 +21,7 @@ const DefaultScreen = ({ userHighScore = 0, highestScore = 0, onStartGame }) => 
         </label>
         <p className="start-container__r__details">
           Answer true/false for simple questions at your best speed!
+          Use your mouse or arrow keys and spacebar to control.
         </p>
       </div>
     </div>

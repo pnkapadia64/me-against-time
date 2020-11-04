@@ -86,7 +86,9 @@ const MainApp = (props) => {
         {props.gameState === CURRENT_GAME_STATE.DEFAULT && 'Race Against Time'}
       </div>
       <GameComponent {...props} />
-      <img className="my-app__czy-logo" src={CrazyGamesLogo} alt="CrazyGames" />
+      <a href="https://www.crazygames.com/" target="_blank">
+        <img className="my-app__czy-logo" src={CrazyGamesLogo} alt="CrazyGames" />
+      </a>
     </div>
   )
 };

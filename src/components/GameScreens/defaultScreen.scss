@@ -29,3 +29,12 @@
     font-size: 1.2rem;
   }
 }
+
+@media only screen and (max-height: 500px) {
+  .start-container {
+    margin: 1rem 0;
+  }
+  .start-container__high-score {
+    margin: 1rem;
+  }
+}

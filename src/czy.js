@@ -26,7 +26,7 @@ export const czyShowMidgameAd = (adCallback) => {
 
     const callbackFinishFn = () => {
         crazysdk.removeEventListener('adFinished', callbackFinishFn);
-        adCallback();
+        adCallback(true);
     };
     const callbackErrorFn = () => {
         crazysdk.removeEventListener('adError', callbackErrorFn);

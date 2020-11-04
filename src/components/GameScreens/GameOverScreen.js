@@ -74,7 +74,7 @@ class GameOverScreen extends PureComponent {
   }
 
   onPlayAgain = () => {
-    czyShowMidgameAd(() => this.props.onStartGame());
+    czyShowMidgameAd((avoidGameStart) => !avoidGameStart && this.props.onStartGame());
   }
 }
 
