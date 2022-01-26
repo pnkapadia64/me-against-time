@@ -33,6 +33,8 @@ class GameOverScreen extends PureComponent {
       czyShowHappytime();
       props.firebase.set('highestScore', props.userHighScore);
       sendGAHighestScore(props.userHighScore);
+    } else if (props.highScoreCreated) {
+      czyShowHappytime(); 
     }
     sendGAUserScore(props.score);
 
